@@ -11,6 +11,8 @@ from bs4 import BeautifulSoup
 import csv
 import os
 
+path = 'Your_Path'
+
 def fetch_data(year, item, crop):
     url = 'https://agr.afa.gov.tw/afa/pgricemeaqty_all.jsp'
     payload = {
@@ -60,7 +62,7 @@ for year in range(97, 112):  # From 97 to 111
                         data_rows.append(row)
 
                 # Define file path
-                file_path = os.path.join('/Volumes/TOSHIBA EXT/Surprise', f"output_{year_str}_{item}_{crop}.csv")
+                file_path = os.path.join(path, f"output_{year_str}_{item}_{crop}.csv")
 
                 # Write to CSV
                 save_to_csv(data_rows, headers, file_path)
